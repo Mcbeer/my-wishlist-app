@@ -1,0 +1,19 @@
+service: wishlist-backend
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  profile: private
+
+functions:
+  authorizer:
+    handler: dist/functions/authorizer
+
+  user:
+    handler: dist/functions/userFunctions
+
+  wish:
+    handler: dist/functions/wishFunctions
+
+  wishlist:
+    handler: dist/functions/wishlistFunctions
