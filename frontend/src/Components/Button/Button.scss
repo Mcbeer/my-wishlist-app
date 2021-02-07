@@ -1,0 +1,21 @@
+.Button {
+  outline: none;
+  border: none;
+  background: #fff;
+  text-align: center;
+  padding: 0.6rem 1rem 0.5rem 1rem;
+  font-size: 1.2rem;
+  box-shadow: 0px 6px 6px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+
+  &__primary {
+    background: #e4d2d2;
+    border-radius: 6px;
+  }
+
+  &__action {
+    overflow: hidden;
+    height: 100%;
+    box-shadow: 0px 6px 6px rgba(0, 0, 0, 0);
+  }
+}

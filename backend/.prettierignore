@@ -1,0 +1,2 @@
+package*.json # Don't mess with package.json
+serverless.yml # Will attempt to corret it otherwise

@@ -1,0 +1,23 @@
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.handler = void 0;
+var serverless_http_1 = __importDefault(require("serverless-http"));
+var setupExpressApp_1 = require("../lib/setupExpressApp");
+var express_1 = require("express");
+var getUserWishlists_1 = require("../lib/wishlist/getUserWishlists");
+var addWishlist_1 = require("../lib/wishlist/addWishlist");
+var deleteWishlist_1 = require("../lib/wishlist/deleteWishlist");
+var updateWishlist_1 = require("../lib/wishlist/updateWishlist");
+var app = setupExpressApp_1.setupExpressApp();
+var wishlistBasePath = "/wishlist";
+var wishlistRouter = express_1.Router();
+wishlistRouter.get("/:userId", getUserWishlists_1.getUserWishlists);
+wishlistRouter.post("/", addWishlist_1.addWishlist);
+wishlistRouter.put("/:wishlistId", updateWishlist_1.updateWishlist);
+wishlistRouter.delete("/:wishlistId", deleteWishlist_1.deleteWishlist);
+app.use(wishlistBasePath, wishlistRouter);
+var serverlessApp = serverless_http_1.default(app);
+exports.handler = serverlessApp;

@@ -1,0 +1,57 @@
+Resources:
+  usersTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: ${self:custom.usersTable}
+      AttributeDefinitions:
+        - AttributeName: userId
+          AttributeType: S
+        - AttributeName: wishlistId
+          AttributeType: S
+        - AttributeName: googleId
+          AttributeType: S
+      KeySchema:
+        - AttributeName: userId
+          KeyType: HASH
+        - AttributeName: wishlistId
+          KeyType: RANGE
+      ProvisionedThroughput:
+        ReadCapacityUnits: 1
+        WriteCapacityUnits: 1
+      GlobalSecondaryIndexes:
+        - IndexName: googleId-index
+          KeySchema:
+            - AttributeName: googleId
+              KeyType: HASH
+          Projection:
+            ProjectionType: ALL
+          ProvisionedThroughput:
+            ReadCapacityUnits: 1
+            WriteCapacityUnits: 1
+  wishlistsTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: ${self:custom.wishlistsTable}
+      AttributeDefinitions:
+        - AttributeName: wishlistId
+          AttributeType: S
+        - AttributeName: wishId
+          AttributeType: S
+      KeySchema:
+        - AttributeName: wishlistId
+          KeyType: HASH
+        - AttributeName: wishId
+          KeyType: RANGE
+      ProvisionedThroughput:
+        ReadCapacityUnits: 1
+        WriteCapacityUnits: 1
+      GlobalSecondaryIndexes:
+        - IndexName: wishId-index
+          KeySchema:
+            - AttributeName: wishId
+              KeyType: HASH
+          Projection:
+            ProjectionType: ALL
+          ProvisionedThroughput:
+            ReadCapacityUnits: 1
+            WriteCapacityUnits: 1

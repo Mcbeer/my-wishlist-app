@@ -1,0 +1,60 @@
+.Wish {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.25);
+  height: 60vh;
+  margin-bottom: 2rem;
+  overflow: hidden;
+
+  &__avatar {
+    height: 50%;
+    padding: 1rem;
+
+    &-img {
+      height: 100%;
+      width: 100%;
+      object-fit: contain;
+    }
+  }
+
+  &__content {
+    border-top: 1px solid #e3d2d1;
+    border-radius: 10px 10px 0 0;
+    box-shadow: 0px -10px 10px rgba(0, 0, 0, 0.05);
+    padding: 1rem;
+    height: 35%;
+
+    &-title {
+      font-size: 2rem;
+    }
+
+    &-description {
+      font-size: 1rem;
+      color: rgba(0, 0, 0, 0.6);
+    }
+  }
+
+  &__actions {
+    height: 15%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-top: 1px solid #e3d2d1;
+    overflow: hidden;
+    background: transparent;
+
+    & > button:first-child {
+      border-right: 1px solid #e3d2d1;
+      background: rgba(var(--color-accent-rgb), 0.3);
+      width: 50%;
+    }
+
+    & > button:last-child {
+      background: rgba(var(--color-secondary-rgb), 0.5);
+      width: 50%;
+    }
+  }
+}

@@ -1,0 +1,22 @@
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.handler = void 0;
+var serverless_http_1 = __importDefault(require("serverless-http"));
+var setupExpressApp_1 = require("../lib/setupExpressApp");
+var express_1 = require("express");
+var getUserSelf_1 = require("../lib/user/getUserSelf");
+var getUserById_1 = require("../lib/user/getUserById");
+var authorizeUser_1 = require("../lib/user/authorizeUser");
+var app = setupExpressApp_1.setupExpressApp();
+var userBasePath = "/user";
+var userRouter = express_1.Router();
+userRouter.get("/me", getUserSelf_1.getUserSelf);
+userRouter.get("/:userId", getUserById_1.getUserById);
+userRouter.post("/authorize", authorizeUser_1.authorizeUser);
+app.use(userBasePath, userRouter);
+console.log("Hello from userFunctions");
+var serverlessApp = serverless_http_1.default(app);
+exports.handler = serverlessApp;
