@@ -4,6 +4,7 @@
   "description": "Backend for Wishlist app",
   "main": "handler.js",
   "scripts": {
+    "build": "tsc",
     "test": "jest"
   },
   "author": "Nicolai Nielsen",
