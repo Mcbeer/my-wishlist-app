@@ -5,7 +5,7 @@
   "main": "handler.js",
   "scripts": {
     "build": "tsc",
-    "test": "jest"
+    "test": "jest --passWithNoTests"
   },
   "author": "Nicolai Nielsen",
   "license": "ISC",
