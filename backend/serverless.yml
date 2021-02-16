@@ -59,7 +59,7 @@ functions:
           method: any
           authorizer:
             name: authorizer
-            resultTtlInSeconds: 300
+            resultTtlInSeconds: 0
             identitySource: method.request.header.Authorization
             type: token
       - http:
@@ -67,7 +67,7 @@ functions:
           method: any
           authorizer:
             name: authorizer
-            resultTtlInSeconds: 300
+            resultTtlInSeconds: 0
             identitySource: method.request.header.Authorization
             type: token
 
@@ -79,7 +79,7 @@ functions:
           method: any
           authorizer:
             name: authorizer
-            resultTtlInSeconds: 300
+            resultTtlInSeconds: 0
             identitySource: method.request.header.Authorization
             type: token
       - http:
@@ -87,7 +87,7 @@ functions:
           method: any
           authorizer:
             name: authorizer
-            resultTtlInSeconds: 300
+            resultTtlInSeconds: 0
             identitySource: method.request.header.Authorization
             type: token
 
@@ -99,7 +99,7 @@ functions:
           method: any
           authorizer:
             name: authorizer
-            resultTtlInSeconds: 300
+            resultTtlInSeconds: 0
             identitySource: method.request.header.Authorization
             type: token
       - http:
@@ -107,7 +107,7 @@ functions:
           method: any
           authorizer:
             name: authorizer
-            resultTtlInSeconds: 300
+            resultTtlInSeconds: 0
             identitySource: method.request.header.Authorization
             type: token
 
