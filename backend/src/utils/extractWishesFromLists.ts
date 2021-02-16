@@ -1,15 +1,10 @@
-import { formatWish } from "./formatWish";
+import { IWishlist } from "../models/IWishlist";
 
 // TODO : Fix the any[]
-export const extractWishesFromLists = (queriedData: any[]) => {
+export const extractWishesFromLists = (queriedData: any[]): IWishlist => {
   const wishlist = queriedData.find((x: any) => x.wishId === "WISHLIST");
-
-  const wishes = queriedData.filter((x) => x.wishId !== "WISHLIST");
-
-  const formattedWishes = wishes.map(formatWish);
 
   return {
     ...wishlist,
-    wishes,
   };
 };

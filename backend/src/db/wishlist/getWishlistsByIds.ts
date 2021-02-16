@@ -14,7 +14,7 @@ export const getWishlistsByIds = async (
         "wishlistId = :wishlistId and begins_with(wishId, :wishId)",
       ExpressionAttributeValues: {
         ":wishlistId": wishlistId,
-        ":wishId": "WISH",
+        ":wishId": "WISHLIST",
       },
     };
 
@@ -27,12 +27,19 @@ export const getWishlistsByIds = async (
       })
       .then((items) => {
         if (items && items.length > 0) {
-          return extractWishesFromLists(items);
+          return items;
         } else {
           return [];
         }
       });
   });
 
-  return Promise.all(wishlists);
+  // Cast the type to unknown, since we know the exact data pattern, but typescript hates us and thinks its an itemlist from dynamodb...
+  return Promise.all(wishlists).then((lists: unknown[]) => {
+    if (lists) {
+      return lists as IWishlist[];
+    } else {
+      return [];
+    }
+  });
 };
