@@ -1,5 +1,6 @@
 import { extractWishlistId } from "../../utils/extractWishlistId";
 import { createDocumentClient } from "../createDocumentClient";
+import { compact } from "lodash";
 
 const client = createDocumentClient();
 
@@ -24,7 +25,7 @@ export const getWishlistIdsByUserId = async (
       if (!items) {
         return [];
       } else {
-        return items.map((item) => extractWishlistId(item.wishlistId));
+        return compact(items.map((item) => extractWishlistId(item.wishlistId)));
       }
     });
 };

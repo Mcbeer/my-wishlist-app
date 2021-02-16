@@ -1,5 +1,6 @@
 import { formatWish } from "./formatWish";
 
+// TODO : Fix the any[]
 export const extractWishesFromLists = (queriedData: any[]) => {
   const wishlist = queriedData.find((x: any) => x.wishId === "WISHLIST");
 

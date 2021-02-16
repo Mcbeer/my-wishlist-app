@@ -1,3 +1,7 @@
-export const extractWishlistId = (wishlistId: string): string => {
-  return wishlistId.split("#")[1];
+export const extractWishlistId = (wishlistId: string): string | null => {
+  if (wishlistId.includes("#")) {
+    return wishlistId.split("#")[1];
+  } else {
+    return null;
+  }
 };
